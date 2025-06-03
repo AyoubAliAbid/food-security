@@ -1,12 +1,13 @@
 import os
-os.system("pip uninstall -y opencv-python opencv-python-headless")
-os.system("pip install opencv-python-headless")
+os.system("apt-get update && apt-get install -y libgl1")  # must be before cv2 import
 
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from collections import Counter
-import cv2  # safe now
+import cv2
 from ultralytics import YOLO
+import streamlit as st
+
 
 st.set_page_config(page_title="Tree Detector", layout="centered")
 
