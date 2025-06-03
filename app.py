@@ -1,10 +1,12 @@
-import streamlit as st
+import os
+os.system("pip uninstall -y opencv-python opencv-python-headless")
+os.system("pip install opencv-python-headless")
+
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from collections import Counter
-import cv2
+import cv2  # safe now
 from ultralytics import YOLO
-import os
 
 st.set_page_config(page_title="Tree Detector", layout="centered")
 
