@@ -8,7 +8,6 @@ import cv2
 from ultralytics import YOLO
 import streamlit as st
 
-
 st.set_page_config(page_title="Tree Detector", layout="centered")
 
 # Load model
@@ -65,6 +64,10 @@ if uploaded_file:
         summary_text, fill="white", font=font
     )
 
-    # Display result
+    # Display notifications before image
+    st.success("✅ Detection complete.")
+    for k, v in counts.items():
+        st.info(f"{class_names[k]} count: {v}")
+
+    # Display result image
     st.image(image, caption="Detection Result", use_column_width=True)
-    st.success("Detection complete.")
